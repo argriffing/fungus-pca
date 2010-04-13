@@ -1,5 +1,6 @@
 """
 Convert a .hud genotype file to a .geno genotype file.
+The output file is in eigenstrat format.
 """
 
 import sys
@@ -19,6 +20,6 @@ def main(args):
         print genotypes
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description=__doc__)
     args = parser.parse_args()
     main(args)
