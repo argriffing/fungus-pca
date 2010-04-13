@@ -16,10 +16,6 @@ def gen_nonempty_stripped_lines(lines):
         if line:
             yield line
 
-def get_first(elements):
-    for element in elements:
-        return element
-
 def main(args):
     # get the names from the .hud file
     names = []
