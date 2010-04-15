@@ -7,18 +7,10 @@ import sys
 
 import argparse
 
-def gen_nonempty_stripped_lines(lines):
-    for line in lines:
-        line = line.strip()
-        if line:
-            yield line
-
-def get_first(elements):
-    for element in elements:
-        return element
+import util
 
 def main(args):
-    line = get_first(gen_nonempty_stripped_lines(sys.stdin))
+    line = util.get_first(util.gen_nonempty_stripped_lines(sys.stdin))
     otu_name, genotype_string = line.split(None, 1)
     genotypes = genotype_string.split()
     for i, genotype in enumerate(genotypes):

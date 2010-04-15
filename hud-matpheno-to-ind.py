@@ -10,24 +10,20 @@ import sys
 
 import argparse
 
-def gen_nonempty_stripped_lines(lines):
-    for line in lines:
-        line = line.strip()
-        if line:
-            yield line
+import util
 
 def main(args):
     # get the names from the .hud file
     names = []
     with open(os.path.expanduser(args.hud)) as fin_hud:
-        for line in gen_nonempty_stripped_lines(fin_hud):
+        for line in util.gen_nonempty_stripped_lines(fin_hud):
             name, rest = line.split(None, 1)
             names.append(name)
     # get case and control status from the matpheno file
     cases = set()
     controls = set()
     with open(os.path.expanduser(args.matpheno)) as fin_matpheno:
-        for line in gen_nonempty_stripped_lines(fin_matpheno):
+        for line in util.gen_nonempty_stripped_lines(fin_matpheno):
             name, classification = line.split(None, 1)
             if classification == '1':
                 cases.add(name)

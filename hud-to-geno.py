@@ -9,16 +9,12 @@ import sys
 
 import argparse
 
-def gen_nonempty_stripped_lines(lines):
-    for line in lines:
-        line = line.strip()
-        if line:
-            yield line
+import util
 
 def main(args):
     # for each individual get the genotype of each SNP
     array_per_individual = []
-    for line in gen_nonempty_stripped_lines(sys.stdin):
+    for line in util.gen_nonempty_stripped_lines(sys.stdin):
         name, genotypes = line.split(None, 1)
         arr = genotypes.split()
         array_per_individual.append(arr)
