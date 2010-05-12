@@ -7,7 +7,7 @@ from subprocess import PIPE
 
 import argparse
 
-def run_smartpca(name):
+def run_eigenstrat(name):
     d = {
             'i' : 'geno',
             'j' : 'pheno',
@@ -22,7 +22,7 @@ def run_smartpca(name):
     return p.communicate()
 
 def main(args):
-    out, err = run_smartpca(args.name)
+    out, err = run_eigenstrat(args.name)
     print out
     print err
 
